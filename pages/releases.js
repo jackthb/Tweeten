@@ -1,8 +1,26 @@
 import Link from 'next/link';
 import Footer from '../components/footer';
+import ReleaseHighlight from '../components/releaseHighlight';
 
-export default function Donate() {
-  
+export async function getStaticProps(context) {
+  let url = 'https://api.github.com/repos/MehediH/Tweeten/releases';
+  const res = await fetch(url);
+  const releases = await res.json();
+
+  if (!releases) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      releases,
+    },
+  };
+}
+
+export default function Releases({ releases }) {
   return (
     <div>
       <header className='pretty'>
@@ -14,7 +32,7 @@ export default function Donate() {
             <img src='./images/logo.png' />
           </a>
           <div className='main'>
-            <h1>Tweeten Updates</h1>
+            <h1 className='donthide'>Tweeten Updates</h1>
             <p>
               All the latest Tweeten updates, changelogs, and download links.
             </p>
@@ -25,8 +43,11 @@ export default function Donate() {
         </div>
       </header>
       <div className='timeline releases container'>
-        <h2 className='indicator'>Loading...</h2>
-        <ul className='tweeten-release'></ul>
+        <ul className='tweeten-release'>
+          {releases.map((release) => (
+            <ReleaseHighlight key={release.id} release={release} />
+          ))}
+        </ul>
       </div>
       <div className='container'>
         <Footer />
