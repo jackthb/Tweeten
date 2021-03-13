@@ -78,6 +78,7 @@ export default function Home({latestReleaseLinks}) {
         <FeatureHighlight
           sizeBig={true}
           img="interface.jpeg"
+          imgClass="shadow"
           imgAlt="Tweeten columns interface"
           title="A powerful, yet simple interface"
           text="Tweeten is based on TweetDeck which means it offers a powerful, column-based interface that helps you keep track of everything that's happening on Twitter without needing to hit the refresh button. Tweeten enhances the TweetDeck design to offer a much cleaner and intutive experience."
@@ -142,6 +143,7 @@ export default function Home({latestReleaseLinks}) {
         <FeatureHighlight
           img="gif.jpeg"
           imgAlt="GIF features for Tweeten"
+          imgClass="shadow"
           contClass="gif"
           title="Powerful features for GIF lovers"
           text="Tweeten is built for GIF lovers. Its built-in GIF Search feature lets you search for GIFs via Giphy, and automatically add them to your tweets and replies! You can download literally any GIF that you see on tweets with a single click of a button. Tweeten also lets you zoom into GIFs, letting you view all the details in a GIF without hurting your eye balls."
@@ -158,7 +160,7 @@ export default function Home({latestReleaseLinks}) {
         <FeatureHighlight
           img="do-more.png"
           imgAlt="Tweeten Options UI"
-          imgClass="column"
+          imgClass="column shadow"
           title='Do more than just "more"'
           text={
             "Tweeten's is stupendously fast. All the built-in features enables you to do a lot more than just \"more\", and the nifty keyboard shortcuts from TweetDeck lets you get to things instantly. TweetDeck's advanced search and filtering system lets you track the exact query you want, and our beautiful interface removes the unnecessary noise and keeps you updated in real-time."
